@@ -9,12 +9,27 @@ import AppItems from "./components/AppItems";
 function App() {
   const [count, setCount] = useState(0);
 
+  let AllItems = [
+    {
+      name: "Milk",
+      date: "23/01/2024",
+    },
+
+    {
+      name: "Bread",
+      date: "27/01/2024",
+    },
+
+    {
+      name: "Nuts",
+      date: "3/01/2024",
+    },
+  ];
   return (
     <>
       <AppTitle />
       <AppInput />
-      <AppItems />
-      <AppItems />
+      <AppItems AllItems={AllItems} />
     </>
   );
 }
