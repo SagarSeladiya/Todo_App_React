@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GrAdd } from "react-icons/gr";
 
 function AppInput({ onHandAdd }) {
   const [itemName, setItemName] = useState("");
@@ -40,7 +41,7 @@ function AppInput({ onHandAdd }) {
       </div>
       <div className="col-md-2 " style={{ textAlign: "right" }}>
         <button className="btn btn-success text-right" onClick={handelSubmit}>
-          Add Task
+          <GrAdd />
         </button>
       </div>
     </div>

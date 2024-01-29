@@ -1,4 +1,5 @@
 import React from "react";
+import { AiFillDelete } from "react-icons/ai";
 
 function AppItems({ AllItems, onHandDelete }) {
   const handelDelete = (item) => {
@@ -20,7 +21,7 @@ function AppItems({ AllItems, onHandDelete }) {
                   className="btn btn-danger"
                   onClick={() => handelDelete(items.name)}
                 >
-                  Delete
+                  <AiFillDelete />
                 </button>
               </div>
             </div>
