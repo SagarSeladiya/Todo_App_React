@@ -1,9 +1,9 @@
+import React from "react";
+
 function AppTitle() {
   return (
-    <div className="m-2 mb-4 text-center">
-      <h1 className="font-weight-bold" style={{ fontWeight: "bold" }}>
-        To-Do Application
-      </h1>
+    <div className="text-center mb-4">
+      <h1 className="display-4">To-Do Application</h1>
     </div>
   );
 }

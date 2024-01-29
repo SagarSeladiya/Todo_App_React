@@ -1,19 +1,32 @@
-function AppItems({ AllItems }) {
+import React from "react";
+
+function AppItems({ AllItems, onHandDelete }) {
+  const handelDelete = (item) => {
+    onHandDelete(item);
+  };
+
   return (
-    <div className="text-left pb-4">
-      {AllItems.map((items) => (
-        <div className="row" key={items.name}>
-          <div className="col-sm-6 ">
-            <p className="text-left">{items.name}</p>
+    <div className="container mt-4">
+      <div className="row">
+        {AllItems.map((items, index) => (
+          <div className="col-md-4 mb-4" key={index}>
+            <div className="card shadow">
+              <div className="card-body">
+                <h3 className="card-title">{items.name}</h3>
+                <p className="card-text font-weight-bold">
+                  <b>Due Date:</b> {items.date}
+                </p>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handelDelete(items.name)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="col-sm-4">
-            <p>{items.date}</p>
-          </div>
-          <div className="col-sm-2">
-            <button className="btn btn-danger ">Delete</button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
