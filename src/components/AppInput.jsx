@@ -1,12 +1,14 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { GrAdd } from "react-icons/gr";
+import { TodoItemsContext } from "./store/todo-items-store";
 
-function AppInput({ onHandAdd }) {
+function AppInput() {
   // const [itemName, setItemName] = useState("");
   // const [dueDate, setDueDate] = useState("");
+  const { onHandAdd } = useContext(TodoItemsContext);
   const inputName = useRef();
   const inputDate = useRef();
-  
+
   // const inputName = (event) => {
   //   setItemName(event.target.value);
   // };
@@ -18,9 +20,7 @@ function AppInput({ onHandAdd }) {
   const handelSubmit = (event) => {
     event.preventDefault();
     const itemName = inputName.current.value;
-    console.log("itemName", itemName);
     const dueDate = inputDate.current.value;
-    console.log("dueDate", dueDate);
     onHandAdd(itemName, dueDate);
     // setItemName("");
     // setDueDate("");

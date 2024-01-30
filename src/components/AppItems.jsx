@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillDelete } from "react-icons/ai";
+import { TodoItemsContext } from "./store/todo-items-store";
 
-function AppItems({ AllItems, onHandDelete }) {
+function AppItems() {
+  const { allItems, onHandDelete } = useContext(TodoItemsContext);
+  
   const handelDelete = (item) => {
     onHandDelete(item);
   };
@@ -9,7 +12,7 @@ function AppItems({ AllItems, onHandDelete }) {
   return (
     <div className="container mt-4">
       <div className="row">
-        {AllItems.map((items, index) => (
+        {allItems.map((items, index) => (
           <div className="col-md-4 mb-4" key={index}>
             <div className="card shadow">
               <div className="card-body">

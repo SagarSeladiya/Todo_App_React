@@ -4,24 +4,10 @@ import AppTitle from "./components/AppTitle";
 import AppInput from "./components/AppInput";
 import AppItems from "./components/AppItems";
 import WelcomeMessage from "./components/WelcomeMessage";
+import { TodoItemsContext } from "./components/store/todo-items-store";
 
 function App() {
-  const initialItems = [
-    {
-      name: "Milk",
-      date: "23/01/2024",
-    },
-    {
-      name: "Bread",
-      date: "27/01/2024",
-    },
-    {
-      name: "Nuts",
-      date: "3/01/2024",
-    },
-  ];
-
-  const [allItems, setAllItems] = useState(initialItems);
+  const [allItems, setAllItems] = useState([]);
 
   const onHandAdd = (itemName, dueDate) => {
     const newItems = [...allItems, { name: itemName, date: dueDate }];
@@ -34,12 +20,14 @@ function App() {
   };
 
   return (
-    <div className="container mt-5">
-      <AppTitle />
-      <AppInput onHandAdd={onHandAdd} />
-      {allItems.length === 0 && <WelcomeMessage />}
-      <AppItems AllItems={allItems} onHandDelete={onHandDelete} />
-    </div>
+    <TodoItemsContext.Provider value={{ allItems, onHandAdd, onHandDelete }}>
+      <div className="container mt-5">
+        <AppTitle />
+        <AppInput />
+        <WelcomeMessage />
+        <AppItems />
+      </div>
+    </TodoItemsContext.Provider>
   );
 }
 
