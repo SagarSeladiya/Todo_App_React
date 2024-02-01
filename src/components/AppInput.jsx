@@ -5,7 +5,7 @@ import { TodoItemsContext } from "./store/todo-items-store";
 function AppInput() {
   // const [itemName, setItemName] = useState("");
   // const [dueDate, setDueDate] = useState("");
-  const { onHandAdd } = useContext(TodoItemsContext);
+  const { addNewItem } = useContext(TodoItemsContext);
   const inputName = useRef();
   const inputDate = useRef();
 
@@ -21,7 +21,7 @@ function AppInput() {
     event.preventDefault();
     const itemName = inputName.current.value;
     const dueDate = inputDate.current.value;
-    onHandAdd(itemName, dueDate);
+    addNewItem(itemName, dueDate);
     // setItemName("");
     // setDueDate("");
   };

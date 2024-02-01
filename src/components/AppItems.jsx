@@ -3,10 +3,10 @@ import { AiFillDelete } from "react-icons/ai";
 import { TodoItemsContext } from "./store/todo-items-store";
 
 function AppItems() {
-  const { allItems, onHandDelete } = useContext(TodoItemsContext);
-  
+  const { allItems, deleteItem } = useContext(TodoItemsContext);
+
   const handelDelete = (item) => {
-    onHandDelete(item);
+    deleteItem(item);
   };
 
   return (

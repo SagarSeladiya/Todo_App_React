@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { TodoItemsContext } from "./store/todo-items-store";
 
+
 function WelcomeMessage() {
-  const { allItems } = useContext(TodoItemsContext);
+
+  const {allItems} = useContext(TodoItemsContext)
+  
   return (
     <div>
       {allItems.length === 0 ? (
